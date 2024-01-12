@@ -22,10 +22,11 @@ func main() {
 
 func executeCommand(label string) error {
 	command := fmt.Sprintf(`sudo NIXOS_LABEL="%s" nixos-rebuild switch`, label)
-	cmd := exec.Command(command)
-	err := cmd.Run()
+	cmd := exec.Command("bash", "-c", command)
+	output, err := cmd.CombinedOutput()
 	if err != nil {
 		return fmt.Errorf("failed to execute command: %v", err)
 	}
+	fmt.Print(string(output))
 	return nil
 }

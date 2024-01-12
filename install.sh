@@ -1,5 +1,7 @@
 #!/bin/bash
 
+user="fededomm"
+
 # Nome del file Go
 file="main.go"
 
@@ -7,7 +9,7 @@ file="main.go"
 output="nixlbl"
 
 # Directory di destinazione
-dest="/usr/local/bin"
+dest="/home/fededomm/.local/bin"
 
 # Compila il file Go
 go build -o $output $file
