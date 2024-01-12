@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"scriptino/commands"
 )
 
 func main() {
@@ -12,11 +13,21 @@ func main() {
     }
 
     label := os.Args[1]
-	err := NixOsRebuildCommand(label)
-    if err != nil {
+	if err := commands.NixOsRebuildCommand(label); err != nil {
         fmt.Println(err)
         os.Exit(1)
     }
+	
+	if err := commands.CommitCommand(label); err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
+	if err := commands.PushCommand(); err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
+	
+
 }
 
 
