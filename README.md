@@ -1,2 +1,2 @@
 # nxlabels
-simple command to wrap nixos-rebuild with given labels
+simple command to wrap "nixos-rebuild rebuild" with given labels and superuser access
