@@ -6,25 +6,17 @@ import (
 )
 
 func main() {
-	conf, err := ReadConfig()
-	fmt.Print(conf)
-	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
-	}
-	/*
     if len(os.Args) < 2 {
         fmt.Println("Please provide an argument")
         os.Exit(1)
     }
 
     label := os.Args[1]
-	nerr := NixOsRebuildCommand(label)
-    if nerr != nil {
+	err := NixOsRebuildCommand(label)
+    if err != nil {
         fmt.Println(err)
         os.Exit(1)
     }
-	*/
 }
 
 

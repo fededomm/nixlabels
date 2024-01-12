@@ -9,7 +9,7 @@ file="main.go"
 output="nixlbl"
 
 # Directory di destinazione
-dest="/home/fededomm/.local/bin"
+dest="/home/$user/.local/bin"
 
 # Compila il file Go
 go build -o $output $file
