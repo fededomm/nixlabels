@@ -19,6 +19,7 @@ func main() {
 	// Read Config File and unmarshal to struct
 	viper.SetConfigName("config")
 	viper.SetConfigType("yaml")
+	viper.AddConfigPath("$HOME/Desktop/nixlabels")
 	viper.AddConfigPath(".")
 	err := viper.ReadInConfig()
 	if err != nil {
