@@ -5,28 +5,12 @@ import (
 	"os"
 	"scriptino/commands"
 
-	"github.com/spf13/viper"
 )
 
-type Config struct {
-	Path string `mapstructure:"path" yaml:"path"`
-}
-
-var config *Config
 
 func main() {
 
-	// Read Config File and unmarshal to struct
-	viper.SetConfigName("config")
-	viper.SetConfigType("yaml")
-	viper.AddConfigPath("$HOME/Desktop/nixlabels")
-	viper.AddConfigPath(".")
-	err := viper.ReadInConfig()
-	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
-	}
-	err = viper.Unmarshal(&config)
+	conf, err := ViperConfig()
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
@@ -45,7 +29,7 @@ func main() {
     }
 
 	// cd on destination folder
-	if err := commands.CdOnNixConfFolger(config.Path); err != nil {
+	if err := commands.CdOnNixConfFolger(conf.Path); err != nil {
 		fmt.Println(err)
 		os.Exit(1)
 	}
@@ -56,13 +40,13 @@ func main() {
 		os.Exit(1)
 	}
 
-	// 
+	// commit to repository
 	if err := commands.CommitCommand(label); err != nil {
 		fmt.Println(err)
 		os.Exit(1)
 	}
 
-	//
+	// push to repository
 	if err := commands.PushCommand(); err != nil {
 		fmt.Println(err)
 		os.Exit(1)

@@ -2,22 +2,22 @@
 
 user="fededomm"
 
-# Nome del file Go
+# file to compile
 file="main.go"
 
-# Nome del file eseguibile
+# executable name
 output="nixlbl"
 
-# Directory di destinazione
+# destination directory
 dest="/home/$user/.local/bin"
 
-# Compila il file Go
+# Compile go file
 go build -o $output $file
 
-# Verifica se la compilazione è andata a buon fine
+# Check if compilation was successful
 if [ $? -eq 0 ]; then
     echo "Compilation successful, moving executable to $dest"
-    # Sposta l'eseguibile nella directory di destinazione
+    # Move executable to destination directory
     mv $output $dest
 else
     echo "Compilation failed"
