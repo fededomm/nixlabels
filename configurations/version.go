@@ -1,5 +1,10 @@
 package configurations
 
+import _ "embed"
+
+//go:embed version.txt
+var version []byte
+
 func Version() string {
-	return "0.1.0"
+	return string(version)
 }

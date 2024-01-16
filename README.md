@@ -45,7 +45,7 @@ we a simple configuration file, this file MUST stay inside the root folder of th
     path: <path-to-pushable-configuration>
 ```
 
-if u want custom name or destination or both for the configuration file, feel free to modify the **viper-config.go** in configurations folder.
+if u want custom name or destination or both, for the configuration file, feel free to modify the **viper-config.go** in configurations folder.
 
 ```golang 
     func ViperConfig() (*Config, error) {
