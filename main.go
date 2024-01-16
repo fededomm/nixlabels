@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"os"
 	"scriptino/commands"
-
+	"scriptino/configurations"
 )
 
 
 func main() {
 
-	conf, err := ViperConfig()
+	conf, err := configurations.ViperConfig()
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
