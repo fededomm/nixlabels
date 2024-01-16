@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
+	"scriptino/configurations"
 )
 
 func NixOsRebuildCommand(label string) error {
@@ -19,7 +20,8 @@ func NixOsRebuildCommand(label string) error {
 }
 
 func CommitCommand(label string) error {
-	command := fmt.Sprintf(`git add . && git commit -m "Generation label: %s"`, label)
+	version := configurations.Version()
+	command := fmt.Sprintf(`git add . && git commit -m "Generation label: %s-%s"`, label, version)
 	cmd := exec.Command("bash", "-c", command)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
