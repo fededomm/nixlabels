@@ -39,13 +39,13 @@ to install the program we need to write two simple cmd commands:
 ```
 
 ## Configuration
-we a simple configuration file, this file MUST stay inside the root folder of the project named "config.yaml" 
+this is the configuration file, this file MUST stay inside the root folder of the project with the name "config.yaml" 
 
 ```yaml
     path: <path-to-pushable-configuration>
 ```
 
-if u want custom name or destination or both, for the configuration file, feel free to modify the **viper-config.go** in configurations folder.
+if u want custom name or destination or both, feel free to modify the **viper-config.go** in configurations folder.
 
 ```golang 
     func ViperConfig() (*Config, error) {
